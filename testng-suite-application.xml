@@ -1,0 +1,29 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="WWs Application-Tab-Test" parallel="none" thread-count="1">
+    <test name="Application Lifecycle">
+        <classes>
+            <class name="com.example.automation.applicationTabTest.applicationLifecycleTest.ApplicationLifecycleTest" />
+        </classes>
+    </test>
+    <test name="Application Location">
+        <classes>
+            <class name="com.example.automation.applicationTabTest.applicationLocationTest.ApplicationLocationTest" />
+        </classes>
+    </test>
+    <test name="Cloud Services">
+        <classes>
+            <class name="com.example.automation.applicationTabTest.cloudServicesTest.CloudServicesTest" />
+        </classes>
+    </test>
+    <test name="Data Quality">
+        <classes>
+            <class name="com.example.automation.applicationTabTest.dataQualityTest.DataQualityTest" />
+        </classes>
+    </test>
+    <test name="Manage Application Portfolio">
+        <classes>
+            <class name="com.example.automation.applicationTabTest.manageApplicationPortfolioTest.ManageApplicationPortfolioTest" />
+        </classes>
+    </test>
+
+</suite>

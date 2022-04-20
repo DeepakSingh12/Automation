@@ -1,0 +1,8 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="WWs HA-Survey-Tab-Test" parallel="none" thread-count="1">
+    <test name="HA Survey">
+        <classes>
+            <class name="com.example.automation.haSurveyTest.HASurveyTest" />
+        </classes>
+    </test>
+</suite>

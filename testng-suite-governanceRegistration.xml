@@ -1,0 +1,8 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="WWs Governance-Registration-Tab-Test" parallel="none" thread-count="1">
+    <test name="Governance Registration">
+        <classes>
+            <class name="com.example.automation.governanceRegistrationTest.GovernanceRegistrationTest" />
+        </classes>
+    </test>
+</suite>

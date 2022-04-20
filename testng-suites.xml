@@ -1,0 +1,11 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Regression Testing">
+    <suite-files>
+        <suite-file path="testng-suite-login.xml"></suite-file>
+        <!--suite-file path="testng-suite-application.xml"></suite-file-->
+        <suite-file path="testng-suite-create.xml"></suite-file>
+        <suite-file path="testng-suite-drParticipation.xml"></suite-file>
+        <suite-file path="testng-suite-governanceRegistration.xml"></suite-file>
+        <suite-file path="testng-suite-haSurvey.xml"></suite-file>
+    </suite-files>
+</suite>

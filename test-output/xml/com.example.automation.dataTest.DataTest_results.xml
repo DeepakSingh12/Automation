@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="TestNGTest-d31e36c4-6bca-421d-8db3-7813db1e80e0"
+           tests="1"
+           failures="0"
+           errors="0"
+           skipped="0"
+           time="1.180">
+    <properties></properties>
+
+
+
+            <testcase
+                name="dataTest"
+                time="1.180"
+                classname="com.example.automation.dataTest.DataTest">
+            </testcase>
+</testsuite>
