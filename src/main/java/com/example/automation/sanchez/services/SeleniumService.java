@@ -109,7 +109,7 @@ public class SeleniumService {
     }
 
     public void populateTextDatePicker(WebElement wb, String text) {
-        WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(
+        WebElement element = wait.until(ExpectedConditions.presenceOfElementLocated(
                 By.xpath("//*[@id='" + wb.getAttribute("id") + "_input']")));
         element.sendKeys(text);
 
