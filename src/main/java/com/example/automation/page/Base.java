@@ -36,6 +36,23 @@ public abstract class Base {
 
   public abstract boolean isAt();
 
+  public void highlightElement(String xpath, String textString) throws InterruptedException {
+    JavascriptExecutor js = (JavascriptExecutor) this.driver;
+    WebElement element = this.driver.findElement(By.xpath(xpath));
+    if (this.wait.until((d) -> (element.isDisplayed() && element.isEnabled()))) {
+      System.out.println("Element present");
+      if (element.getText().equalsIgnoreCase(textString)) {
+        for (int i = 0; i < 3; i++) {
+          js.executeScript("arguments[0].setAttribute('style', 'border:2px solid green; background: lightgreen')",element);
+        }
+      } else {
+        for (int i = 0; i < 3; i++) {
+          js.executeScript("arguments[0].setAttribute('style', 'border:2px solid red; background: yellow')", element);
+        }
+      }
+    }
+    ;
+  }
 
   public boolean waitForHeader(String xpath) {
     WebElement element = this.driver.findElement(By.xpath(xpath));

@@ -99,6 +99,10 @@
 					<includes>
 						<includes>*.*</includes>
 					</includes>
+				<systemPropertyVarible>
+					<Username></Username>
+					<Password></Password>
+				</systemPropertyVarible>
 				</configuration>
 			</plugin>
 		</plugins>

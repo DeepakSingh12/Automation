@@ -32,9 +32,9 @@ public class LoginComponent extends Base {
 
     public void completeForm() throws IOException {
         if (this.wait.until((d) -> this.username.isDisplayed())) {
-            seleniumUtilities.populateTextLogin(this.username, "F4938119");
+            seleniumUtilities.populateTextLogin(this.username, System.getProperty("Username"));
             seleniumUtilities.waitForPageLoad();
-            seleniumUtilities.populateTextLogin(this.password, "d33P@k30");
+            seleniumUtilities.populateTextLogin(this.password, System.getProperty("Password"));
             seleniumUtilities.waitForPageLoad();
             screenshotService.takeScreenShot(this.getClass().getSimpleName(), Thread.currentThread().getStackTrace()[1].getMethodName());
             seleniumUtilities.clickLogin(this.login);
