@@ -39,6 +39,9 @@ public class GovernanceMaintananceComponent extends Base {
         seleniumUtilities.waitForPageLoad();
         seleniumUtilities.click(EditTick);
         seleniumUtilities.waitForPageLoad();
+        seleniumUtilities.waitForPageLoad();
+        seleniumUtilities.waitForPageLoad();
+        seleniumUtilities.waitForPageLoad();
         seleniumUtilities.populateTextDatePicker(itabDate, "04/24/2022");
         seleniumUtilities.waitForPageLoad();
         seleniumUtilities.selectDropdown(itabOutcome, "Approve");
