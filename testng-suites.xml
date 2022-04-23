@@ -2,6 +2,7 @@
 <suite name="Regression Testing">
     <suite-files>
         <suite-file path="testng-suite-login.xml"></suite-file>
+        <suite-file path="testng-suite-governanceRegistration.xml"></suite-file>
         <!--suite-file path="testng-suite-application.xml"></suite-file-->
         <!--suite-file path="testng-suite-create.xml"></suite-file>
         <suite-file path="testng-suite-drParticipation.xml"></suite-file>
