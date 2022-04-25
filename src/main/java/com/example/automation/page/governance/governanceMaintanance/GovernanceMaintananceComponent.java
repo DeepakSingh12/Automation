@@ -3,6 +3,7 @@ package com.example.automation.page.governance.governanceMaintanance;
 import com.example.automation.page.Base;
 import com.example.automation.sanchez.annotation.PageFragment;
 import com.example.automation.sanchez.services.SeleniumService;
+import com.example.automation.sanchez.services.WaitForService;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -15,6 +16,9 @@ public class GovernanceMaintananceComponent extends Base {
 
     @Autowired
     private SeleniumService seleniumUtilities;
+
+    @Autowired
+    private WaitForService waitForService;
 
     @FindBy(id = path + "j_idt27:filter")
     private WebElement referenceNumber;
@@ -33,15 +37,12 @@ public class GovernanceMaintananceComponent extends Base {
 
    
 
-    public void completeGovernanceMaintananceForm(String itgNumber) {
+    public void completeGovernanceMaintananceForm(String itgNumber) throws InterruptedException {
         seleniumUtilities.waitForPageLoad();
         seleniumUtilities.populateText(referenceNumber, itgNumber);
         seleniumUtilities.waitForPageLoad();
         seleniumUtilities.click(EditTick);
-        seleniumUtilities.waitForPageLoad();
-        seleniumUtilities.waitForPageLoad();
-        seleniumUtilities.waitForPageLoad();
-        seleniumUtilities.waitForPageLoad();
+        waitForService.waitForPulse(5);
         seleniumUtilities.populateTextDatePicker(itabDate, "04/24/2022");
         seleniumUtilities.waitForPageLoad();
         seleniumUtilities.selectDropdown(itabOutcome, "Approve");
