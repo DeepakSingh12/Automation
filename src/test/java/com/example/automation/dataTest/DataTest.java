@@ -24,7 +24,7 @@ public class DataTest extends SpringTestNGTest {
     public void dataTest() throws IOException {
         this.excelService.setData("Integrations_AppsAttributes.xls", "Integrations", "Luke Adam Go");
         this.excelService.readAndWriteExcel("Integration Completed", "false");
-        // Files.readAllLines(resource.getFile().toPath())
+        //Files.readAllLines(resource.getFile().toPath())
         // .forEach(System.out::println);
     }
 
