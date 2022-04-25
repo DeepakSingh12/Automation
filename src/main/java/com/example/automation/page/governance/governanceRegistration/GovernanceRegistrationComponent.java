@@ -80,6 +80,7 @@ public class GovernanceRegistrationComponent extends Base {
         scrollDown();
         seleniumUtilities.populateText(orgID_filter, "FNB iDigi Tech Support Strategy and Architecture");
         seleniumUtilities.waitForPageLoad();
+        seleniumUtilities.waitForPageLoad();
         seleniumUtilities.click(orgID);
         seleniumUtilities.waitForPageLoad();
         seleniumUtilities.selectDropdownSearch(cioItManagerID, "Attie Anderson (3092569)");
