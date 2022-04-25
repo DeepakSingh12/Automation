@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="TestNGTest-a4d4a97f-1652-4710-ae0a-951f4f0229a3"
+           tests="1"
+           failures="0"
+           errors="0"
+           skipped="0"
+           time="15.757">
+    <properties></properties>
+
+
+
+            <testcase
+                name="loginTest"
+                time="15.757"
+                classname="com.example.automation.loginTest.LoginTest">
+            </testcase>
+</testsuite>
