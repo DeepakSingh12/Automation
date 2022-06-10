@@ -1,6 +1,12 @@
 package com.example.automation.sanchez.services;
 
-import com.example.automation.sanchez.annotation.LazyAutowired;
+import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.Toolkit;
+import java.awt.datatransfer.Clipboard;
+import java.awt.datatransfer.StringSelection;
+import  java.awt.event.KeyEvent;
+import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -11,15 +17,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 
-import  java.awt.event.KeyEvent;
-
-import java.awt.datatransfer.Clipboard;
-import java.awt.datatransfer.StringSelection;
-import java.awt.Toolkit;
-
-
-import java.awt.AWTException;	
-import java.awt.Robot;	
+import com.example.automation.sanchez.annotation.LazyAutowired;	
 
 @Lazy
 @Service
@@ -164,6 +162,18 @@ public class SeleniumService {
         }
     }
 
+    public WebElement returnWebElementTable(String tableName, String tableHeader, String actualString) {
+        List<WebElement> elements = this.driver.findElements(By.xpath("//span[text()='"+tableHeader+"']/ancestor::div[@id='"+tableName+"']//child::td"));
+        for (WebElement webElement : elements) {
+            System.out.println(webElement.getText());
+            if((webElement.getText().trim()).equalsIgnoreCase(actualString)){
+                WebElement element = this.driver.findElement(By.xpath("//span[text()='"+tableHeader+"']/ancestor::div[@id='"+tableName+"']//child::td[text()='"+actualString+"']"));
+                return element;
+            }
+        }
+        return null;
+    
+    }
     public void fileUpload (String path) throws AWTException {
         StringSelection strSelection = new StringSelection(path);
         System.setProperty("java.awt.headless", "false");

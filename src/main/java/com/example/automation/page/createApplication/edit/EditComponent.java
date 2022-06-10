@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import com.example.automation.page.Base;
 import com.example.automation.sanchez.annotation.PageFragment;
+import com.example.automation.sanchez.services.JavaScriptServices;
 import com.example.automation.sanchez.services.ScreenshotService;
 import com.example.automation.sanchez.services.SeleniumService;
 
@@ -20,6 +21,9 @@ public class EditComponent extends Base {
 
     @Autowired
     private ScreenshotService screenshotService; 
+
+    @Autowired
+    private JavaScriptServices javaScriptServices;
 
     // BusinessAttributes
     @FindBy(id = path + "BusinessAttributesTab_header")
@@ -251,7 +255,7 @@ public class EditComponent extends Base {
         seleniumUtilities.waitForPageLoad();
         seleniumUtilities.click(businessAttributesCheckbox);
         screenshotService.takeScreenShot(this.getClass().getSimpleName(), Thread.currentThread().getStackTrace()[1].getMethodName());
-        scrollUp();
+        javaScriptServices.scrollUp();
         seleniumUtilities.click(businessAttributesTab);
 
     }
@@ -278,7 +282,7 @@ public class EditComponent extends Base {
         seleniumUtilities.click(IntegrationsCheckbox);
         seleniumUtilities.waitForPageLoad();
         screenshotService.takeScreenShot(this.getClass().getSimpleName(), Thread.currentThread().getStackTrace()[1].getMethodName());
-        scrollUp();
+        javaScriptServices.scrollUp();
         seleniumUtilities.click(ApplicationIntegrationTab);
 
     }
@@ -310,7 +314,7 @@ public class EditComponent extends Base {
         seleniumUtilities.waitForPageLoad();
         seleniumUtilities.populateText(V_ACT_OthIntCost_2020_input, "100");
         
-        scrollDown();
+        javaScriptServices.scrollDown();
         seleniumUtilities.populateText(percentrun21_22_input, "25");
         seleniumUtilities.waitForPageLoad();
         seleniumUtilities.populateText(percentchange21_22_input, "25");
@@ -321,8 +325,8 @@ public class EditComponent extends Base {
         seleniumUtilities.click(FinanceAttributesCheckbox);
         seleniumUtilities.waitForPageLoad();
         screenshotService.takeScreenShot(this.getClass().getSimpleName(), Thread.currentThread().getStackTrace()[1].getMethodName());
-        scrollUp();
-        scrollUp();
+        javaScriptServices.scrollUp();
+        javaScriptServices.scrollUp();
         seleniumUtilities.click(CostsTab);
 
     }
@@ -343,7 +347,7 @@ public class EditComponent extends Base {
         seleniumUtilities.click(criticalityCheckbox);
         seleniumUtilities.waitForPageLoad();
         screenshotService.takeScreenShot(this.getClass().getSimpleName(), Thread.currentThread().getStackTrace()[1].getMethodName());
-        scrollUp();
+        javaScriptServices.scrollUp();
         seleniumUtilities.click(CriticalityTab);
 
     }
@@ -361,11 +365,11 @@ public class EditComponent extends Base {
         seleniumUtilities.waitForPageLoad();
         seleniumUtilities.selectDropdownSearch(drChampionID, "Andre Goliath (2865912)");
         seleniumUtilities.waitForPageLoad();
-        scrollDown();
+        javaScriptServices.scrollDown();
         seleniumUtilities.click(DRConfirmedCheckbox);
         seleniumUtilities.waitForPageLoad();
         screenshotService.takeScreenShot(this.getClass().getSimpleName(), Thread.currentThread().getStackTrace()[1].getMethodName());
-        scrollUp();
+        javaScriptServices.scrollUp();
         seleniumUtilities.click(InfrastructureTab);
 
     }
@@ -373,7 +377,7 @@ public class EditComponent extends Base {
     public void completeSecurity() throws IOException {
         // Security Risk Attributes
         seleniumUtilities.click(SecurityTab);
-        scrollDown();
+        javaScriptServices.scrollDown();
         seleniumUtilities.waitForPageLoad();
         seleniumUtilities.selectDropdown(systemClassification, "Business Critical");
         seleniumUtilities.waitForPageLoad();
@@ -407,14 +411,14 @@ public class EditComponent extends Base {
         seleniumUtilities.click(SecurityCheckbox);
         seleniumUtilities.waitForPageLoad();
         screenshotService.takeScreenShot(this.getClass().getSimpleName(), Thread.currentThread().getStackTrace()[1].getMethodName());
-        scrollUp();
+        javaScriptServices.scrollUp();
         seleniumUtilities.click(SecurityTab);
 
     }
 
     public void clickSaveBtn() throws IOException {
         seleniumUtilities.waitForPageLoad();
-        scrollDown();
+        javaScriptServices.scrollDown();
         screenshotService.takeScreenShot(this.getClass().getSimpleName(), Thread.currentThread().getStackTrace()[1].getMethodName());
         seleniumUtilities.click(SaveButton);
     }

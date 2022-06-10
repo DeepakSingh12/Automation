@@ -8,6 +8,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.springframework.context.annotation.Lazy;
@@ -23,8 +24,10 @@ public class WaitForService {
     
 
     public void waitForPulse(int step) throws InterruptedException {
-        FluentWait<WebDriver> wait = new FluentWait<>(this.driver).withTimeout(Duration.ofSeconds(30))
-            .pollingEvery(Duration.ofSeconds(1)).ignoring(NoSuchElementException.class);
+        FluentWait<WebDriver> wait = new FluentWait<>(this.driver).withTimeout(Duration.ofSeconds(60))
+            .pollingEvery(Duration.ofMillis(250))
+            .ignoring(NoSuchElementException.class)
+            .ignoring(StaleElementReferenceException.class);
         int count = 0;
         while (true) {
             boolean status = wait.until(
@@ -35,7 +38,7 @@ public class WaitForService {
                 count = 0;
                 break;
             }
-            //System.out.println(count);
+            System.out.println(count);
             Thread.sleep(250);
         }
     }
@@ -48,4 +51,15 @@ public class WaitForService {
         wait2.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
     }
 
+
+
+    public boolean waitForWebElementPresent(WebElement element, String textString) {
+        FluentWait<WebDriver> wait3 = new FluentWait<>(this.driver).withTimeout(Duration.ofSeconds(10))
+        .pollingEvery(Duration.ofSeconds(1))
+        .ignoring(NoSuchElementException.class)
+        .ignoring(StaleElementReferenceException.class);
+        System.out.println(element.getText());
+        return wait3.until(ExpectedConditions.attributeToBe(element, "text" ,textString));
+        
+    }
 }

@@ -2,14 +2,15 @@ package com.example.automation.page.login;
 
 import java.io.IOException;
 
-import com.example.automation.page.Base;
-import com.example.automation.sanchez.annotation.PageFragment;
-import com.example.automation.sanchez.services.ScreenshotService;
-import com.example.automation.sanchez.services.SeleniumService;
-
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.springframework.beans.factory.annotation.Autowired;
+
+import com.example.automation.page.Base;
+import com.example.automation.sanchez.annotation.PageFragment;
+import com.example.automation.sanchez.services.JavaScriptServices;
+import com.example.automation.sanchez.services.ScreenshotService;
+import com.example.automation.sanchez.services.SeleniumService;
 
 
 @PageFragment
@@ -20,6 +21,9 @@ public class LoginComponent extends Base {
 
     @Autowired
     private ScreenshotService screenshotService; 
+
+    @Autowired
+    private JavaScriptServices javaScriptServices;
 
     @FindBy(id = "username")
     private WebElement username;
@@ -32,9 +36,12 @@ public class LoginComponent extends Base {
 
     public void completeForm() throws IOException {
         if (this.wait.until((d) -> this.username.isDisplayed())) {
-            seleniumUtilities.populateTextLogin(this.username, System.getProperty("Username"));
+            seleniumUtilities.populateTextLogin(this.username, "");
+            //seleniumUtilities.populateTextLogin(this.username, System.getProperty("Username"));
             seleniumUtilities.waitForPageLoad();
-            seleniumUtilities.populateTextLogin(this.password, System.getProperty("Password"));
+            seleniumUtilities.populateTextLogin(this.password, "");
+            javaScriptServices.scrollDown();
+            //seleniumUtilities.populateTextLogin(this.password, System.getProperty("Password"));
             seleniumUtilities.waitForPageLoad();
             screenshotService.takeScreenShot(this.getClass().getSimpleName(), Thread.currentThread().getStackTrace()[1].getMethodName());
             seleniumUtilities.clickLogin(this.login);

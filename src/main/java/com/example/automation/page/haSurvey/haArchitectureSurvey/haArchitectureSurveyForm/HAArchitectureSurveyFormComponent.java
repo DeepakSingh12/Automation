@@ -2,6 +2,7 @@ package com.example.automation.page.haSurvey.haArchitectureSurvey.haArchitecture
 
 import com.example.automation.page.Base;
 import com.example.automation.sanchez.annotation.PageFragment;
+import com.example.automation.sanchez.services.JavaScriptServices;
 import com.example.automation.sanchez.services.SeleniumService;
 
 import org.openqa.selenium.WebElement;
@@ -15,6 +16,9 @@ public class HAArchitectureSurveyFormComponent extends Base {
 
     @Autowired
     private SeleniumService seleniumUtilities;
+
+    @Autowired
+    private JavaScriptServices javaScriptServices;
 
     // HA Architecture
 
@@ -221,9 +225,9 @@ public class HAArchitectureSurveyFormComponent extends Base {
         seleniumUtilities.waitForPageLoad();
         seleniumUtilities.populateText(apptomicroservicespercent, "50");
         seleniumUtilities.waitForPageLoad();
-        scrollUp();
+        javaScriptServices.scrollUp();
         seleniumUtilities.click(HAArchitectureTab);
-        scrollDown();
+        javaScriptServices.scrollDown();
         seleniumUtilities.click(MonitoringToolsTab);
         seleniumUtilities.waitForPageLoad();
         seleniumUtilities.selectDropdown(appselforissmanaged, "Other");
@@ -237,9 +241,9 @@ public class HAArchitectureSurveyFormComponent extends Base {
         seleniumUtilities.selectDropdown(deploytoolsha, "No");
         seleniumUtilities.waitForPageLoad();
         seleniumUtilities.selectDropdown(appdeploydcfail, "No");
-        scrollUp();
+        javaScriptServices.scrollUp();
         seleniumUtilities.click(MonitoringToolsTab);
-        scrollDown();
+        javaScriptServices.scrollDown();
         seleniumUtilities.click(TestingTab);
         seleniumUtilities.waitForPageLoad();
         seleniumUtilities.selectDropdown(apprebuildinstall, "No");
@@ -261,9 +265,9 @@ public class HAArchitectureSurveyFormComponent extends Base {
         seleniumUtilities.selectDropdown(loadtestslowdowndepapps, "No");
         seleniumUtilities.waitForPageLoad();
         seleniumUtilities.populateText(loadtestslowdowndepappsissues, "Fuck all lol");
-        scrollUp();
+        javaScriptServices.scrollUp();
         seleniumUtilities.click(TestingTab);
-        scrollDown();
+        javaScriptServices.scrollDown();
         seleniumUtilities.click(DatabaseTab);
         seleniumUtilities.waitForPageLoad();
         seleniumUtilities.waitForPageLoad();
@@ -284,7 +288,7 @@ public class HAArchitectureSurveyFormComponent extends Base {
         seleniumUtilities.selectDropdown(dbtechpointintime, "No");
         seleniumUtilities.waitForPageLoad();
         seleniumUtilities.selectDropdown(usingdbtechpointintime, "No");
-        scrollDown();
+        javaScriptServices.scrollDown();
         seleniumUtilities.waitForPageLoad();
         seleniumUtilities.selectDropdown(dbcopyforfailover, "No");
         seleniumUtilities.waitForPageLoad();
@@ -299,7 +303,7 @@ public class HAArchitectureSurveyFormComponent extends Base {
         seleniumUtilities.selectDropdown(relationaldbtech, "DB2");
         seleniumUtilities.waitForPageLoad();
         seleniumUtilities.selectDropdown(nosqldbtech, "Cassandra");
-        scrollUp();
+        javaScriptServices.scrollUp();
         seleniumUtilities.click(DatabaseTab);
         seleniumUtilities.click(saveBtn);
 

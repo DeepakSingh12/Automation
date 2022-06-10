@@ -5,6 +5,8 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.FilenameFilter;
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Cell;
@@ -45,11 +47,9 @@ public class ExcelService {
         return applicationName;
     }
 
-
     public File getFileName() {
         return fileName;
     }
-
 
     private static String returnStringValue(Cell cell) {
         CellType cellType = cell.getCellType();
@@ -77,9 +77,20 @@ public class ExcelService {
     }
 
     private static void writeCellValue(Cell cell, String value) {
+        
+        System.out.println(cell.getCellType());
         switch (cell.getCellType()) {
             case NUMERIC:
-                cell.setCellValue(Double.parseDouble(value));
+                try {
+                    cell.setCellValue(Double.parseDouble(value));
+                } catch (Exception e) {
+                    try {
+                        cell.setCellValue(new SimpleDateFormat("yyyy/mm/dd").parse(value));
+                    } catch (ParseException e1) {
+                        e1.printStackTrace();
+                    }
+                    
+                }
                 break;
             case STRING:
                 cell.setCellValue(value);
@@ -88,14 +99,16 @@ public class ExcelService {
                 cell.setCellValue(Boolean.parseBoolean(value));
                 break;
             case BLANK:
+                cell.setCellValue(value);
                 break;
             case ERROR:
+                cell.setCellValue(value);
                 break;
             case FORMULA:
+                cell.setCellValue(value);
                 break;
             case _NONE:
-                break;
-            default:
+                cell.setCellValue(Double.parseDouble(value));
                 break;
         }
 
@@ -124,7 +137,7 @@ public class ExcelService {
     }
 
     public void readAndWriteExcel(String header, String value) throws IOException {
-        System.out.println(getFile());
+        // System.out.println(getFile());
 
         FileInputStream inputStream = new FileInputStream(getFile());
 
@@ -158,8 +171,7 @@ public class ExcelService {
             Row row = sheet.getRow(i);
             // Create a loop to print cell values in a row
             for (int j = 0; j < row.getLastCellNum(); j++) {
-                if ((returnStringValue(row.getCell(j)).equalsIgnoreCase(header))) {
-                    System.out.println(j);
+                if (((returnStringValue(row.getCell(j)).trim()).equalsIgnoreCase(header))) {
                     for (int t = 1; t < rowCount + 1; t++) {
                         Row rowT = sheet.getRow(t);
                         if ((returnStringValue(rowT.getCell(1)).equalsIgnoreCase(this.getApplicationName()))) {

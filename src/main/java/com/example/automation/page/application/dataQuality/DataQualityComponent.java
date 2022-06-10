@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import com.example.automation.page.Base;
 import com.example.automation.sanchez.annotation.PageFragment;
+import com.example.automation.sanchez.services.JavaScriptServices;
 import com.example.automation.sanchez.services.ScreenshotService;
 import com.example.automation.sanchez.services.SeleniumService;
 import com.example.automation.sanchez.services.WaitForService;
@@ -25,6 +26,9 @@ public class DataQualityComponent extends Base {
 
     @Autowired
     private WaitForService waitForService;
+
+    @Autowired
+    private JavaScriptServices javaScriptServices;
 
     @FindBy(xpath = "//*[@id='DataQualityListForm:j_idt16:3']/..")
     private WebElement myBU;
@@ -57,8 +61,8 @@ public class DataQualityComponent extends Base {
     }
 
     public void searchAndEditApplication(String appName) throws InterruptedException, IOException {
-        scrollDown();
-        scrollDown();
+        javaScriptServices.scrollDown();
+        javaScriptServices.scrollDown();
         seleniumUtilities.populateText(name, appName);
         screenshotService.takeScreenShot(this.getClass().getSimpleName(), Thread.currentThread().getStackTrace()[1].getMethodName());
         waitForService.waitForPulse(5);

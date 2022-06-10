@@ -5,6 +5,7 @@ import java.io.IOException;
 import com.example.automation.page.Base;
 import com.example.automation.sanchez.annotation.PageFragment;
 import com.example.automation.sanchez.services.ApplicationDataService;
+import com.example.automation.sanchez.services.JavaScriptServices;
 import com.example.automation.sanchez.services.ScreenshotService;
 import com.example.automation.sanchez.services.SeleniumService;
 import com.github.javafaker.Faker;
@@ -26,6 +27,9 @@ public class CreateComponent extends Base {
 
     @Autowired
     private ScreenshotService screenshotService; 
+
+    @Autowired
+    private JavaScriptServices javaScriptServices;
 
     @FindBy(id = path + "nameOfApplication")
     private WebElement nameOfApplication;
@@ -134,7 +138,7 @@ public class CreateComponent extends Base {
         seleniumUtilities.selectDropdown(applicationPlatform, "Application Server");
         seleniumUtilities.waitForPageLoad();
         seleniumUtilities.selectDropdown(dataClassification, "Restricted");
-        scrollDown();
+        javaScriptServices.scrollDown();
 
         // Ownership
         seleniumUtilities.populateText(orgID_filter, "FNB iDigi Tech Support Strategy and Architecture");
@@ -156,7 +160,7 @@ public class CreateComponent extends Base {
         seleniumUtilities.click(criticalApp);
         seleniumUtilities.waitForPageLoad();
         seleniumUtilities.selectDropdown(businessImpactOfA24hrApplicationDowntime, "Moderate Impact");
-        scrollDown();
+        javaScriptServices.scrollDown();
 
         // Application Lifecycle
         seleniumUtilities.waitForPageLoad();
@@ -173,7 +177,7 @@ public class CreateComponent extends Base {
         seleniumUtilities.click(isDRinPlace);
         seleniumUtilities.waitForPageLoad();
         seleniumUtilities.click(worksInStandin);
-        scrollDown();
+        javaScriptServices.scrollDown();
 
         // Confirm button
         seleniumUtilities.waitForPageLoad();

@@ -2,6 +2,7 @@ package com.example.automation.page.governance.governanceRegistration;
 
 import com.example.automation.page.Base;
 import com.example.automation.sanchez.annotation.PageFragment;
+import com.example.automation.sanchez.services.JavaScriptServices;
 import com.example.automation.sanchez.services.SeleniumService;
 import com.github.javafaker.Faker;
 
@@ -19,6 +20,9 @@ public class GovernanceRegistrationComponent extends Base {
 
     @Autowired
     private Faker faker;
+
+    @Autowired
+    private JavaScriptServices javaScriptServices;
 
     @FindBy(id = path + "topic")
     private WebElement topic;
@@ -77,7 +81,7 @@ public class GovernanceRegistrationComponent extends Base {
         seleniumUtilities.waitForPageLoad();
         seleniumUtilities.selectDropdownSearch(itabPresenterID, "Attie Anderson (3092569)");
         seleniumUtilities.waitForPageLoad();
-        scrollDown();
+        javaScriptServices.scrollDown();
         seleniumUtilities.populateText(orgID_filter, "FNB iDigi Tech Support Strategy and Architecture");
         seleniumUtilities.waitForPageLoad();
         seleniumUtilities.waitForPageLoad();
