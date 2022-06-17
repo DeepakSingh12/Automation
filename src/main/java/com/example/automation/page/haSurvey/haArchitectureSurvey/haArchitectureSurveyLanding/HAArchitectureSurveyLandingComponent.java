@@ -30,16 +30,16 @@ public class HAArchitectureSurveyLandingComponent extends Base{
     @FindBy(xpath ="//*[@id='HADataQualityListForm:datalist:0:perfectajax']/span[contains(text(), 'Edit')]")
     private WebElement editTick;
 
-    public void serachApplication() throws InterruptedException {
-        seleniumUtilities.waitForPageLoad();
+    public void searchApplication() throws InterruptedException {
+        waitForService.waitForPulse(3);
         seleniumUtilities.populateText(nameOfApplicationInput, applicationDataService.getApplicationName());
-        //seleniumUtilities.populateText(nameOfApplicationInput, "Cal Culator");
-        seleniumUtilities.waitForPageLoad();
+        //seleniumUtilities.populateText(nameOfApplicationInput, "Ann Chovie");
+        waitForService.waitForPulse(3);
         waitForService.waitForElementPresent("//*[@id='HADataQualityListForm:datalist:0:ajax1' and contains(text(),'"+applicationDataService.getApplicationName()+"')]/../following-sibling::td/a");
-        //waitForService.waitForElementPresent("//*[@id='HADataQualityListForm:datalist:0:ajax1' and contains(text(),'Cal Culator')]/../following-sibling::td/a");
-        seleniumUtilities.waitForPageLoad();
+        //waitForService.waitForElementPresent("//*[@id='HADataQualityListForm:datalist:0:ajax1' and contains(text(),'Ann Chovie')]/../following-sibling::td/a");
+        waitForService.waitForPulse(3);
         seleniumUtilities.click(editTick);
-        seleniumUtilities.waitForPageLoad();
+        waitForService.waitForPulse(3);
     }
 
     @Override

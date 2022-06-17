@@ -70,31 +70,31 @@ public class GovernanceRegistrationComponent extends Base {
 
     public String completeGovernanceRegistrationForm() throws InterruptedException {
         seleniumUtilities.populateText(topic, faker.funnyName().name());
-        seleniumUtilities.waitForPageLoad();
+        waitForService.waitForPulse(3);
         seleniumUtilities.populateText(projectDescription, "This is a test mfz");
-        seleniumUtilities.waitForPageLoad();
+        waitForService.waitForPulse(3);
         seleniumUtilities.selectDropdown(purpose, "Information");
-        seleniumUtilities.waitForPageLoad();
+        waitForService.waitForPulse(3);
         seleniumUtilities.selectDropdown(itabUrgency, "High");
-        seleniumUtilities.waitForPageLoad();
+        waitForService.waitForPulse(3);
         seleniumUtilities.populateTextDatePicker(targetLiveDate, "04/14/2022");
-        seleniumUtilities.waitForPageLoad();
+        waitForService.waitForPulse(3);
         seleniumUtilities.selectDropdownSearch(itabPresenterID, "Attie Anderson (3092569)");
-        seleniumUtilities.waitForPageLoad();
+        waitForService.waitForPulse(3);
         javaScriptServices.scrollDown();
         seleniumUtilities.populateText(orgID_filter, "FNB iDigi Tech Support Strategy and Architecture");
-        seleniumUtilities.waitForPageLoad();
-        seleniumUtilities.waitForPageLoad();
+        waitForService.waitForPulse(3);
+        waitForService.waitForPulse(3);
         seleniumUtilities.click(orgID);
-        seleniumUtilities.waitForPageLoad();
+        waitForService.waitForPulse(3);
         seleniumUtilities.selectDropdownSearch(cioItManagerID, "Attie Anderson (3092569)");
-        seleniumUtilities.waitForPageLoad();
+        waitForService.waitForPulse(3);
         seleniumUtilities.selectDropdownSearch(appShortCode, "ABS Suite (ABSSUITE)");
-        seleniumUtilities.waitForPageLoad();
+        waitForService.waitForPulse(3);
         seleniumUtilities.click(buttonToSaveGovRegistrationForm);
-        seleniumUtilities.waitForPageLoad();
+        waitForService.waitForPulse(3);
         seleniumUtilities.click(yesBtn);
-        seleniumUtilities.waitForPageLoad();
+        waitForService.waitForPulse(3);
         ITGNumber = seleniumUtilities.getAttribute(itgNum);
         seleniumUtilities.click(doneBtn);
         

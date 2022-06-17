@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="TestNGTest-575af5f7-aef6-4e92-825a-07e0c429c88f"
+           tests="1"
+           failures="0"
+           errors="0"
+           skipped="0"
+           time="75.242">
+    <properties></properties>
+
+
+
+            <testcase
+                name="dataQualityTest"
+                time="75.242"
+                classname="com.example.automation.applicationTabTest.dataQualityTest.DataQualityTest">
+            </testcase>
+</testsuite>

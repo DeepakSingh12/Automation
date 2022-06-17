@@ -47,6 +47,9 @@ public class ApplicationLifecycleComponent extends Base {
     @FindBy(xpath = "//*[@id='applifecycleCard:form:appsDataTable:globalFilter:6']/..")
     private WebElement retired;
 
+    @FindBy(xpath = "//*[@id='applifecycleCard:form:appsDataTable:appLifeCycleExcelExport']/img")
+    private WebElement excelDownload;
+
     public void clickAllQuickFilters() throws InterruptedException, IOException {
         seleniumUtilities.click(all);
         waitForService.waitForPulse(10);
@@ -76,6 +79,10 @@ public class ApplicationLifecycleComponent extends Base {
         waitForService.waitForPulse(10);
         screenshotService.takeScreenShot(this.getClass().getSimpleName(),
                 Thread.currentThread().getStackTrace()[1].getMethodName());
+        seleniumUtilities.click(excelDownload);
+        waitForService.waitForPulse(10);
+        screenshotService.takeScreenShot(this.getClass().getSimpleName(),
+                        Thread.currentThread().getStackTrace()[1].getMethodName());
     }
 
     @Override

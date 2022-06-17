@@ -42,6 +42,21 @@ public class DataQualityComponent extends Base {
     @FindBy(xpath = "//*[@id='DataQualityListForm:j_idt16:0']/..")
     private WebElement viewAll;
 
+    @FindBy(xpath = "//*[@id='DataQualityListForm:appCS:horizontal_toggler']")
+    private WebElement acsToogle;
+
+    @FindBy(xpath = "//*[@id='DataQualityListForm:appTS:horizontalTime_toggler']")
+    private WebElement atsToogle;
+
+    @FindBy(xpath = "//*[@id='DataQualityListForm:appCS:orgstatusExcelExport']/img")
+    private WebElement acsExcelDownload;
+
+    @FindBy(xpath = "//*[@id='DataQualityListForm:appTS:orgstatusExcelExportTime']/img")
+    private WebElement atsExcelDownload;
+
+    @FindBy(xpath = "//*[@id='DataQualityListForm:datalist:0:ajax1']")
+    private WebElement nameofApplication;
+
     @FindBy(id = path + "datalist:nameOfApplicationInput")
     private WebElement name;
 
@@ -58,14 +73,35 @@ public class DataQualityComponent extends Base {
         seleniumUtilities.click(viewAll);
         waitForService.waitForPulse(15);
         screenshotService.takeScreenShot(this.getClass().getSimpleName(), Thread.currentThread().getStackTrace()[1].getMethodName());
+        seleniumUtilities.click(acsToogle);
+        waitForService.waitForPulse(5);
+        screenshotService.takeScreenShot(this.getClass().getSimpleName(), Thread.currentThread().getStackTrace()[1].getMethodName());
+        seleniumUtilities.click(acsExcelDownload);
+        waitForService.waitForPulse(5);
+        javaScriptServices.scrollDown();
+        javaScriptServices.scrollDown();
+        screenshotService.takeScreenShot(this.getClass().getSimpleName(), Thread.currentThread().getStackTrace()[1].getMethodName());
+        seleniumUtilities.click(atsToogle);
+        waitForService.waitForPulse(5);
+        screenshotService.takeScreenShot(this.getClass().getSimpleName(), Thread.currentThread().getStackTrace()[1].getMethodName());
+        seleniumUtilities.click(atsExcelDownload);
+        waitForService.waitForPulse(5);
+        screenshotService.takeScreenShot(this.getClass().getSimpleName(), Thread.currentThread().getStackTrace()[1].getMethodName());
+
+
     }
 
     public void searchAndEditApplication(String appName) throws InterruptedException, IOException {
         javaScriptServices.scrollDown();
         javaScriptServices.scrollDown();
+        waitForService.waitForPulse(5);
         seleniumUtilities.populateText(name, appName);
+        waitForService.waitForPulse(10);
         screenshotService.takeScreenShot(this.getClass().getSimpleName(), Thread.currentThread().getStackTrace()[1].getMethodName());
         waitForService.waitForPulse(5);
+        seleniumUtilities.click(nameofApplication);
+        waitForService.waitForPulse(10);
+        screenshotService.takeScreenShot(this.getClass().getSimpleName(), Thread.currentThread().getStackTrace()[1].getMethodName());
 
     }
 

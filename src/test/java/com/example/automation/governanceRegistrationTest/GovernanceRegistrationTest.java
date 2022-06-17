@@ -32,12 +32,13 @@ public class GovernanceRegistrationTest extends SpringTestNGTest {
 
     private String itgnumber;
 
-    @Test
+    @Test(priority = 1)
     public void governanceRegistrationTest() throws IOException, InterruptedException {
-        // this.loginPage.goTo();
-        // Assert.assertTrue(this.loginPage.isAt());
-        // this.loginPage.getLoginComponent().completeForm();
-
+        this.loginPage.goTo();
+        if (!this.loginPage.getLoginComponent().loginBypass()) {
+            Assert.assertTrue(this.loginPage.isAt());
+            this.loginPage.getLoginComponent().completeForm();
+        }
         Assert.assertTrue(
                 this.loginPage.getLoginComponent().waitForHeader("//*[@id='panelWholePage']/div[1]/header/nav/a"));
         Assert.assertTrue(this.landingPage.isAt());

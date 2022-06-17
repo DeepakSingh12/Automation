@@ -44,24 +44,24 @@ public class DRParticipationFormComponent extends Base {
     private WebElement SaveRow;
 
 
-    public void completeDRParticipationForm() {
+    public void completeDRParticipationForm() throws InterruptedException {
 
         seleniumUtilities.populateText(nameOfApplication, "Annie");
-        seleniumUtilities.waitForPageLoad();
+        waitForService.waitForPulse(10);
         seleniumUtilities.click(EditTick);
-        seleniumUtilities.waitForPageLoad();
+        waitForService.waitForPulse(3);
         seleniumUtilities.selectDropdown(hostinglocation, "Other");
-        seleniumUtilities.waitForPageLoad();
+        waitForService.waitForPulse(3);
         seleniumUtilities.populateText(rto, "450");
-        seleniumUtilities.waitForPageLoad();
+        waitForService.waitForPulse(3);
         seleniumUtilities.selectDropdown(isParticipatingInDR, "Yes");
-        // seleniumUtilities.waitForPageLoad();
+        // waitForService.waitForPulse(3);
         // seleniumUtilities.selectDropdownSearch(drChampionID, "Attie Anderson (3092569)");
-        seleniumUtilities.waitForPageLoad();
+        waitForService.waitForPulse(3);
         seleniumUtilities.selectDropdown(drLocation2021, "Red3");
-        seleniumUtilities.waitForPageLoad();
+        waitForService.waitForPulse(3);
         seleniumUtilities.populateText(drComment, "Waa dub la dub");
-        seleniumUtilities.waitForPageLoad();
+        waitForService.waitForPulse(3);
         seleniumUtilities.click(SaveRow);
 
     }

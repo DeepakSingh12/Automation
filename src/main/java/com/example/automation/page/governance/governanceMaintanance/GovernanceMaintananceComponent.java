@@ -38,15 +38,15 @@ public class GovernanceMaintananceComponent extends Base {
    
 
     public void completeGovernanceMaintananceForm(String itgNumber) throws InterruptedException {
-        seleniumUtilities.waitForPageLoad();
+        waitForService.waitForPulse(3);
         seleniumUtilities.populateText(referenceNumber, itgNumber);
-        seleniumUtilities.waitForPageLoad();
+        waitForService.waitForPulse(3);
         seleniumUtilities.click(EditTick);
         waitForService.waitForPulse(5);
         seleniumUtilities.populateTextDatePicker(itabDate, "04/24/2022");
-        seleniumUtilities.waitForPageLoad();
+        waitForService.waitForPulse(3);
         seleniumUtilities.selectDropdown(itabOutcome, "Approve");
-        seleniumUtilities.waitForPageLoad();
+        waitForService.waitForPulse(3);
         seleniumUtilities.click(confirmTick);
 
 

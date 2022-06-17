@@ -96,6 +96,12 @@ public class ApplicationLocationComponent extends Base {
     @FindBy(xpath = "//*[@id='ApplicationsLocationForm:appLocationCard:applocationtab:deployedAppsDataTable:0:j_idt82']/a[2]/span")
     private WebElement saveTickDeployment;
 
+    @FindBy(xpath = "//*[@id='ApplicationsLocationForm:appLocationCard:applocationtab:appsDataTable:appLifeCycleExcelExport']/img")
+    private WebElement excelDownoad;
+
+    @FindBy(xpath = "//*[@id='ApplicationsLocationForm:appLocationCard:applocationtab:deployedAppsDataTable:appLifeCycleExcelExport']/img")
+    private WebElement excelDownoadDeployments;
+
     public void clickApplicationDeployment() throws IOException, InterruptedException {
         seleniumUtilities.click(applicationDeployment);
         waitForService.waitForPulse(5);
@@ -197,6 +203,24 @@ public class ApplicationLocationComponent extends Base {
         screenshotService.takeScreenShot(this.getClass().getSimpleName(),
                 Thread.currentThread().getStackTrace()[1].getMethodName());
     }
+
+    public void downloadExcelDataApps() throws InterruptedException, IOException {
+        waitForService.waitForPulse(10);
+        seleniumUtilities.click(excelDownoad);
+        waitForService.waitForPulse(10);
+        screenshotService.takeScreenShot(this.getClass().getSimpleName(),
+                Thread.currentThread().getStackTrace()[1].getMethodName());
+    }
+
+    public void downloadExcelDataDeployment() throws InterruptedException, IOException {
+        waitForService.waitForPulse(10);
+        seleniumUtilities.click(excelDownoadDeployments);
+        waitForService.waitForPulse(10);
+        screenshotService.takeScreenShot(this.getClass().getSimpleName(),
+                Thread.currentThread().getStackTrace()[1].getMethodName());
+    }
+
+
 
     @Override
     public boolean isAt() {

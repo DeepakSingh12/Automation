@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="TestNGTest-b8c4b314-75eb-4e19-b723-4689d3bf9751"
+           tests="1"
+           failures="0"
+           errors="0"
+           skipped="0"
+           time="250.355">
+    <properties></properties>
+
+
+
+            <testcase
+                name="manageApplicationPortfolioTest"
+                time="250.355"
+                classname="com.example.automation.applicationTabTest.manageApplicationPortfolioTest.ManageApplicationPortfolioTest">
+            </testcase>
+</testsuite>

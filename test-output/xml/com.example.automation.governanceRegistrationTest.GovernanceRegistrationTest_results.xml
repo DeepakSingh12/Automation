@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="TestNGTest-bdf33661-44b9-4288-a1d4-5afbb14cff33"
+           tests="1"
+           failures="0"
+           errors="0"
+           skipped="0"
+           time="86.028">
+    <properties></properties>
+
+
+
+            <testcase
+                name="governanceRegistrationTest"
+                time="86.028"
+                classname="com.example.automation.governanceRegistrationTest.GovernanceRegistrationTest">
+            </testcase>
+</testsuite>

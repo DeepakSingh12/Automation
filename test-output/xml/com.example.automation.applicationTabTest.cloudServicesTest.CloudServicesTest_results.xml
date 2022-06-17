@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="TestNGTest-027c6d41-ea39-4f8b-9d68-bfe28b89bda0"
+           tests="1"
+           failures="0"
+           errors="0"
+           skipped="0"
+           time="47.100">
+    <properties></properties>
+
+
+
+            <testcase
+                name="cloudServicesPage"
+                time="47.100"
+                classname="com.example.automation.applicationTabTest.cloudServicesTest.CloudServicesTest">
+            </testcase>
+</testsuite>

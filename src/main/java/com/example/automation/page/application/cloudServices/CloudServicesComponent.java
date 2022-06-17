@@ -36,24 +36,25 @@ public class CloudServicesComponent extends Base {
     private WebElement Public;
 
     public void checkCloudServices() throws IOException, InterruptedException {
+        waitForService.waitForPulse(10);
         seleniumUtilities.selectDropdownPowerBI("Project Approval Status", "Approved");
-        seleniumUtilities.waitForPageLoad();
+        waitForService.waitForPulse(3);
         screenshotService.takeScreenShot(this.getClass().getSimpleName(),
                 Thread.currentThread().getStackTrace()[1].getMethodName());
         seleniumUtilities.selectDropdownPowerBI("Materiality of Service", "Confidential");
-        seleniumUtilities.waitForPageLoad();
+        waitForService.waitForPulse(3);
         screenshotService.takeScreenShot(this.getClass().getSimpleName(),
                 Thread.currentThread().getStackTrace()[1].getMethodName());
         seleniumUtilities.selectDropdownPowerBI("Materiality of Service", "Internal Use Only");
-        seleniumUtilities.waitForPageLoad();
+        waitForService.waitForPulse(3);
         screenshotService.takeScreenShot(this.getClass().getSimpleName(),
                 Thread.currentThread().getStackTrace()[1].getMethodName());
         seleniumUtilities.selectDropdownPowerBI("Materiality of Service", "Non Material Arrangement");
-        seleniumUtilities.waitForPageLoad();
+        waitForService.waitForPulse(3);
         screenshotService.takeScreenShot(this.getClass().getSimpleName(),
                 Thread.currentThread().getStackTrace()[1].getMethodName());
         seleniumUtilities.selectDropdownPowerBI("Materiality of Service", "Non Material Arrangements");
-        seleniumUtilities.waitForPageLoad();
+        waitForService.waitForPulse(3);
         screenshotService.takeScreenShot(this.getClass().getSimpleName(),
                 Thread.currentThread().getStackTrace()[1].getMethodName());
         seleniumUtilities.selectDropdownPowerBI("Materiality of Service", "Public");

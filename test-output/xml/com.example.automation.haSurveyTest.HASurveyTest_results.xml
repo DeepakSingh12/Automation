@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="TestNGTest-41520a89-11f8-4679-b705-be18026a9ea1"
+           tests="1"
+           failures="0"
+           errors="0"
+           skipped="0"
+           time="71.353">
+    <properties></properties>
+
+
+
+            <testcase
+                name="haBulkUploadTest"
+                time="71.353"
+                classname="com.example.automation.haSurveyTest.HASurveyTest">
+            </testcase>
+</testsuite>

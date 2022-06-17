@@ -11,7 +11,7 @@ import com.example.automation.sanchez.annotation.PageFragment;
 import com.example.automation.sanchez.services.JavaScriptServices;
 import com.example.automation.sanchez.services.ScreenshotService;
 import com.example.automation.sanchez.services.SeleniumService;
-
+import com.example.automation.sanchez.services.WaitForService;
 
 @PageFragment
 public class LoginComponent extends Base {
@@ -20,10 +20,13 @@ public class LoginComponent extends Base {
     private SeleniumService seleniumUtilities;
 
     @Autowired
-    private ScreenshotService screenshotService; 
+    private ScreenshotService screenshotService;
 
     @Autowired
     private JavaScriptServices javaScriptServices;
+
+    @Autowired
+    private WaitForService waitForService;
 
     @FindBy(id = "username")
     private WebElement username;
@@ -34,19 +37,29 @@ public class LoginComponent extends Base {
     @FindBy(id = "kc-login")
     private WebElement login;
 
+    @FindBy(xpath = "//*[@id='panelWholePage']/div[1]/header/nav/a")
+    private WebElement header;
+
     public void completeForm() throws IOException {
         if (this.wait.until((d) -> this.username.isDisplayed())) {
             //seleniumUtilities.populateTextLogin(this.username, "");
-            seleniumUtilities.populateTextLogin(this.username, System.getProperty("Username"));
+            seleniumUtilities.populateTextLogin(this.username,
+            System.getProperty("Username"));
             seleniumUtilities.waitForPageLoad();
-            seleniumUtilities.populateTextLogin(this.password, "");
+            //seleniumUtilities.populateTextLogin(this.password, "");
             javaScriptServices.scrollDown();
-            seleniumUtilities.populateTextLogin(this.password, System.getProperty("Password"));
+            seleniumUtilities.populateTextLogin(this.password,
+            System.getProperty("Password"));
             seleniumUtilities.waitForPageLoad();
-            screenshotService.takeScreenShot(this.getClass().getSimpleName(), Thread.currentThread().getStackTrace()[1].getMethodName());
+            screenshotService.takeScreenShot(this.getClass().getSimpleName(),
+                    Thread.currentThread().getStackTrace()[1].getMethodName());
             seleniumUtilities.clickLogin(this.login);
         }
 
+    }
+
+    public boolean loginBypass() {
+        return waitForService.waitForWebElementPresent(header, "class", "logo");
     }
 
     @Override

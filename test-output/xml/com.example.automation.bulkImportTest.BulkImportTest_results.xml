@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="TestNGTest-f436543c-8616-4a70-bdae-dcc3e8e9f6bb"
+<testsuite name="TestNGTest-17676e13-799d-4208-aaaa-cbce531694c7"
            tests="1"
            failures="0"
            errors="0"
            skipped="0"
-           time="89.633">
+           time="67.890">
     <properties></properties>
 
 
 
             <testcase
-                name="bulkImportSecurityTest"
-                time="89.633"
+                name="bulkImportLifecycleTest"
+                time="67.890"
                 classname="com.example.automation.bulkImportTest.BulkImportTest">
             </testcase>
 </testsuite>

@@ -11,7 +11,7 @@ import com.example.automation.sanchez.annotation.LazyAutowired;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class DRParticipationTest extends SpringTestNGTest{
+public class DRParticipationTest extends SpringTestNGTest {
 
     @LazyAutowired
     private LoginPage loginPage;
@@ -22,19 +22,21 @@ public class DRParticipationTest extends SpringTestNGTest{
     @LazyAutowired
     private DRParticipationFormPage drParticipationFormPage;
 
-    @Test
-    public void drParticipationTest() throws IOException {
-        // this.loginPage.goTo();
-        // Assert.assertTrue(this.loginPage.isAt());
-        // this.loginPage.getLoginComponent().completeForm();
-
-        Assert.assertTrue(this.loginPage.getLoginComponent().waitForHeader("//*[@id='panelWholePage']/div[1]/header/nav/a"));
+    @Test(priority = 1)
+    public void drParticipationTest() throws IOException, InterruptedException {
+        this.loginPage.goTo();
+        if (!(this.loginPage.getLoginComponent().loginBypass())) {
+            Assert.assertTrue(this.loginPage.isAt());
+            this.loginPage.getLoginComponent().completeForm();
+        }
+        Assert.assertTrue(
+                this.loginPage.getLoginComponent().waitForHeader("//*[@id='panelWholePage']/div[1]/header/nav/a"));
         Assert.assertTrue(this.landingPage.isAt());
         this.landingPage.getLandingComponent().clickdrParticipationandForm();
 
         Assert.assertTrue(this.drParticipationFormPage.isAt());
         this.drParticipationFormPage.getDrParticipationFormComponent().completeDRParticipationForm();
-        
+
     }
-    
+
 }

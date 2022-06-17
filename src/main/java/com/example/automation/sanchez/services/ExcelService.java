@@ -81,6 +81,17 @@ public class ExcelService {
         System.out.println(cell.getCellType());
         switch (cell.getCellType()) {
             case NUMERIC:
+                // if(cell.getCellType() != null ){ 
+                //         cell.setCellValue(Double.parseDouble(value));
+                //   }
+                //  else{
+                //     try {
+                //         cell.setCellValue(new SimpleDateFormat("yyyy/mm/dd").parse(value));
+                //     } catch (ParseException e) {
+                //         // TODO Auto-generated catch block
+                //         e.printStackTrace();
+                //     }
+                //  }
                 try {
                     cell.setCellValue(Double.parseDouble(value));
                 } catch (Exception e) {

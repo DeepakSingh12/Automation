@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="TestNGTest-8c5b02be-bf28-4132-9760-4b4a78b7f8fd"
+           tests="1"
+           failures="0"
+           errors="0"
+           skipped="0"
+           time="43.804">
+    <properties></properties>
+
+
+
+            <testcase
+                name="drParticipationTest"
+                time="43.804"
+                classname="com.example.automation.drParticipationTest.DRParticipationTest">
+            </testcase>
+</testsuite>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="TestNGTest-56b75f11-6200-4329-8546-edc06489ec68"
+           tests="1"
+           failures="0"
+           errors="0"
+           skipped="0"
+           time="297.647">
+    <properties></properties>
+
+
+
+            <testcase
+                name="applicationLocationTest"
+                time="297.647"
+                classname="com.example.automation.applicationTabTest.applicationLocationTest.ApplicationLocationTest">
+            </testcase>
+</testsuite>

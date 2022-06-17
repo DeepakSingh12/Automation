@@ -43,10 +43,11 @@ public class CreateTest extends SpringTestNGTest {
 
     @Test
     public void createTest() throws IOException, InterruptedException {
-        // this.loginPage.goTo();
-        // Assert.assertTrue(this.loginPage.isAt());
-        // this.loginPage.getLoginComponent().completeForm();
-        //Assert.assertTrue(this.loginPage.getLoginComponent().waitForHeader("//*[@id='panelWholePage']/div[1]/header/nav/a"));
+        this.loginPage.goTo();
+        if (!(this.loginPage.getLoginComponent().loginBypass())) {
+            Assert.assertTrue(this.loginPage.isAt());
+            this.loginPage.getLoginComponent().completeForm();
+        }
 
         Assert.assertTrue(this.landingPage.isAt());
         this.landingPage.getLandingComponent().clickCreateTab();
@@ -70,7 +71,8 @@ public class CreateTest extends SpringTestNGTest {
         this.viewPage.getViewComponent().clickDQButton();
 
         Assert.assertTrue(this.dataQualityPage.isAt());
-        this.dataQualityPage.getDataQualityComponent().searchAndEditApplication(this.applicationDataService.getApplicationName());
+        this.dataQualityPage.getDataQualityComponent()
+                .searchAndEditApplication(this.applicationDataService.getApplicationName());
     }
 
 }

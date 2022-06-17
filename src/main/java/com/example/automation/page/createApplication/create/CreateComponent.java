@@ -116,74 +116,74 @@ public class CreateComponent extends Base {
     private ApplicationDataService applicationDataService;
 
 
-    public void completeForm() throws IOException {
+
+    public void completeForm() throws IOException, InterruptedException {
         applicationDataService.setApplicationName();
         // Basic Information
         seleniumUtilities.populateText(nameOfApplication, applicationDataService.getApplicationName());
-        seleniumUtilities.waitForPageLoad();
-        seleniumUtilities.populateText(instanceName, faker.funnyName().name());
-        seleniumUtilities.waitForPageLoad();
+        waitForService.waitForPulse(3);
+        //seleniumUtilities.populateText(instanceName, faker.funnyName().name());
+        waitForService.waitForPulse(3);
         seleniumUtilities.populateText(aliasOfApplication, "T");
-        seleniumUtilities.waitForPageLoad();
+        waitForService.waitForPulse(3);
         seleniumUtilities.populateText(appShortCode, faker.name().firstName());
-        seleniumUtilities.waitForPageLoad();
+        waitForService.waitForPulse(3);
         seleniumUtilities.populateText(descriptionOfApplication, "Testing Tool");
-        seleniumUtilities.waitForPageLoad();
+        waitForService.waitForPulse(3);
         seleniumUtilities.populateText(vendorName, "Jeff");
-        seleniumUtilities.waitForPageLoad();
+        waitForService.waitForPulse(3);
         seleniumUtilities.selectDropdown(levelOfCustomisation, "Unknown");
-        seleniumUtilities.waitForPageLoad();
+        waitForService.waitForPulse(3);
         seleniumUtilities.populateText(primaryDevelopmentLanguage, "Java");
-        seleniumUtilities.waitForPageLoad();
+        waitForService.waitForPulse(3);
         seleniumUtilities.selectDropdown(applicationPlatform, "Application Server");
-        seleniumUtilities.waitForPageLoad();
+        waitForService.waitForPulse(3);
         seleniumUtilities.selectDropdown(dataClassification, "Restricted");
         javaScriptServices.scrollDown();
 
         // Ownership
         seleniumUtilities.populateText(orgID_filter, "FNB iDigi Tech Support Strategy and Architecture");
-        seleniumUtilities.waitForPageLoad();
-        seleniumUtilities.waitForPageLoad();
+        waitForService.waitForPulse(10);
         seleniumUtilities.click(orgunit);
         seleniumUtilities.selectDropdownSearch(cioItManagerID, "Aline Kruger (3867218)");
-        seleniumUtilities.waitForPageLoad();
+        waitForService.waitForPulse(3);
         seleniumUtilities.selectDropdownSearch(businessOwnerID, "Aline Kruger (3867218)");
-        seleniumUtilities.waitForPageLoad();
+        waitForService.waitForPulse(3);
         seleniumUtilities.selectDropdownSearch(technicalOwnerID, "Aline Kruger (3867218)");
-        seleniumUtilities.waitForPageLoad();
+        waitForService.waitForPulse(3);
         seleniumUtilities.selectDropdownSearch(architectID, "Aline Kruger (3867218)");
-        seleniumUtilities.waitForPageLoad();
+        waitForService.waitForPulse(3);
         seleniumUtilities.selectDropdownSearch(champion1_ID, "Aline Kruger (3867218)");
 
         // Criticality
-        seleniumUtilities.waitForPageLoad();
+        waitForService.waitForPulse(3);
         seleniumUtilities.click(criticalApp);
-        seleniumUtilities.waitForPageLoad();
+        waitForService.waitForPulse(3);
         seleniumUtilities.selectDropdown(businessImpactOfA24hrApplicationDowntime, "Moderate Impact");
         javaScriptServices.scrollDown();
 
         // Application Lifecycle
-        seleniumUtilities.waitForPageLoad();
+        waitForService.waitForPulse(3);
         seleniumUtilities.populateTextDatePicker(phaseInPlannedFromDate, "13/03/2022");
-        seleniumUtilities.waitForPageLoad();
+        waitForService.waitForPulse(3);
         // seleniumUtilities.click(replacementApp);
 
         // Infrastructure
-        seleniumUtilities.waitForPageLoad();
+        waitForService.waitForPulse(3);
         seleniumUtilities.selectDropdown(hostingLocation, "FNB Data Centre");
-        seleniumUtilities.waitForPageLoad();
+        waitForService.waitForPulse(3);
         seleniumUtilities.selectDropdown(primaryProductionEnvironmentLocation, "Red 3");
-        seleniumUtilities.waitForPageLoad();
+        waitForService.waitForPulse(3);
         seleniumUtilities.click(isDRinPlace);
-        seleniumUtilities.waitForPageLoad();
+        waitForService.waitForPulse(3);
         seleniumUtilities.click(worksInStandin);
         javaScriptServices.scrollDown();
 
         // Confirm button
-        seleniumUtilities.waitForPageLoad();
+        waitForService.waitForPulse(3);
         screenshotService.takeScreenShot(this.getClass().getSimpleName(), Thread.currentThread().getStackTrace()[1].getMethodName());
         seleniumUtilities.click(buttonToSavequickcreateapplication);
-        seleniumUtilities.waitForPageLoad();
+        waitForService.waitForPulse(3);
         screenshotService.takeScreenShot(this.getClass().getSimpleName(), Thread.currentThread().getStackTrace()[1].getMethodName());
         seleniumUtilities.click(yesConfirmationButton);
 

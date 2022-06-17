@@ -41,6 +41,9 @@ public class LandingComponent extends Base {
     @FindBy(xpath = "//*[@id='panelWholePage']/div[1]/header/nav/ul/li[9]/ul/li[1]/a")
     private WebElement haArchitectureSurvey;
 
+    @FindBy(xpath = "//*[@id='panelWholePage']/div[1]/header/nav/ul/li[9]/ul/li[3]/a")
+    private WebElement haSurveyBulkImport;
+
     @FindBy(id = "help1")
     private WebElement application;
 
@@ -62,85 +65,94 @@ public class LandingComponent extends Base {
     @FindBy(xpath = "//*[@id='panelWholePage']/div[1]/header/nav/ul/li[6]/a")
     private WebElement bulkImport;
 
-    public void clickCreateTab() throws IOException {
+    public void clickCreateTab() throws IOException, InterruptedException {
         screenshotService.takeScreenShot(this.getClass().getSimpleName(), Thread.currentThread().getStackTrace()[1].getMethodName());
         seleniumUtilities.click(creatBtn);
-        seleniumUtilities.waitForPageLoad();
+        waitForService.waitForPulse(3);
 
     }
 
-    public void clickBulkImportTab() throws IOException {
+    public void clickBulkImportTab() throws IOException, InterruptedException {
         screenshotService.takeScreenShot(this.getClass().getSimpleName(), Thread.currentThread().getStackTrace()[1].getMethodName());
         seleniumUtilities.click(bulkImport);
-        seleniumUtilities.waitForPageLoad();
+        waitForService.waitForPulse(3);
 
     }
 
-    public void clickGovernanceTabandRegistration() throws IOException {
+    public void clickGovernanceTabandRegistration() throws IOException, InterruptedException {
         seleniumUtilities.click(governanceBtn);
-        seleniumUtilities.waitForPageLoad();
+        waitForService.waitForPulse(3);
         screenshotService.takeScreenShot(this.getClass().getSimpleName(), Thread.currentThread().getStackTrace()[1].getMethodName());
         seleniumUtilities.click(govRegistrationFormBtn);
-        seleniumUtilities.waitForPageLoad();
+        waitForService.waitForPulse(3);
 
     }
 
-    public void clickdrParticipationandForm() throws IOException {
+    public void clickdrParticipationandForm() throws IOException, InterruptedException {
         seleniumUtilities.click(drParticipation);
-        seleniumUtilities.waitForPageLoad();
+        waitForService.waitForPulse(3);
         screenshotService.takeScreenShot(this.getClass().getSimpleName(), Thread.currentThread().getStackTrace()[1].getMethodName());
         seleniumUtilities.click(drParticipationForm);
-        seleniumUtilities.waitForPageLoad();
+        waitForService.waitForPulse(3);
 
     }
 
-    public void clickHASurvey() throws IOException {
+    public void clickHASurvey() throws IOException, InterruptedException {
         seleniumUtilities.click(haSurvey);
-        seleniumUtilities.waitForPageLoad();
+        waitForService.waitForPulse(3);
         screenshotService.takeScreenShot(this.getClass().getSimpleName(), Thread.currentThread().getStackTrace()[1].getMethodName());
         seleniumUtilities.click(haArchitectureSurvey);
-        seleniumUtilities.waitForPageLoad();
+        waitForService.waitForPulse(3);
 
     }
 
-    public void clickDataQuailty() throws IOException {
+    public void clickHASurveyBulkImport() throws IOException, InterruptedException {
+        seleniumUtilities.click(haSurvey);
+        waitForService.waitForPulse(3);
+        screenshotService.takeScreenShot(this.getClass().getSimpleName(), Thread.currentThread().getStackTrace()[1].getMethodName());
+        seleniumUtilities.click(haSurveyBulkImport);
+        waitForService.waitForPulse(3);
+
+    }
+
+    public void clickDataQuailty() throws IOException, InterruptedException {
         seleniumUtilities.click(application);
-        seleniumUtilities.waitForPageLoad();
+        waitForService.waitForPulse(3);
         screenshotService.takeScreenShot(this.getClass().getSimpleName(), Thread.currentThread().getStackTrace()[1].getMethodName());
         seleniumUtilities.click(dataQuality);
-        seleniumUtilities.waitForPageLoad();
+        waitForService.waitForPulse(3);
     }
 
-    public void clickmanageApplicationPortfolio() throws IOException {
+    public void clickmanageApplicationPortfolio() throws IOException, InterruptedException {
         seleniumUtilities.click(application);
-        seleniumUtilities.waitForPageLoad();
+        waitForService.waitForPulse(3);
         screenshotService.takeScreenShot(this.getClass().getSimpleName(), Thread.currentThread().getStackTrace()[1].getMethodName());
         seleniumUtilities.click(manageApplicationPortfolio);
-        seleniumUtilities.waitForPageLoad();
+        waitForService.waitForPulse(3);
     }
 
-    public void clickApplicationLifecycle() throws IOException {
+    public void clickApplicationLifecycle() throws IOException, InterruptedException {
         seleniumUtilities.click(application);
-        seleniumUtilities.waitForPageLoad();
+        waitForService.waitForPulse(3);
         screenshotService.takeScreenShot(this.getClass().getSimpleName(), Thread.currentThread().getStackTrace()[1].getMethodName());
         seleniumUtilities.click(applicationLifecycle);
-        seleniumUtilities.waitForPageLoad();
+        waitForService.waitForPulse(3);
     }
 
-    public void clickApplicationLocation() throws IOException {
+    public void clickApplicationLocation() throws IOException, InterruptedException {
         seleniumUtilities.click(application);
-        seleniumUtilities.waitForPageLoad();
+        waitForService.waitForPulse(3);
         screenshotService.takeScreenShot(this.getClass().getSimpleName(), Thread.currentThread().getStackTrace()[1].getMethodName());
         seleniumUtilities.click(applicationLocation);
-        seleniumUtilities.waitForPageLoad();
+        waitForService.waitForPulse(3);
     }
 
-    public void clickCloudServices() throws IOException {
+    public void clickCloudServices() throws IOException, InterruptedException {
         seleniumUtilities.click(application);
-        seleniumUtilities.waitForPageLoad();
+        waitForService.waitForPulse(3);
         screenshotService.takeScreenShot(this.getClass().getSimpleName(), Thread.currentThread().getStackTrace()[1].getMethodName());
         seleniumUtilities.click(cloudServices);
-        seleniumUtilities.waitForPageLoad();
+        waitForService.waitForPulse(3);
     }
 
     @Override

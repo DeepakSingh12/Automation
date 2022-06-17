@@ -23,10 +23,11 @@ public class ApplicationLocationTest extends SpringTestNGTest {
 
     @Test
     public void applicationLocationTest() throws IOException, InterruptedException {
-        // this.loginPage.goTo();
-    
-        // Assert.assertTrue(this.loginPage.isAt());
-        // this.loginPage.getLoginComponent().completeForm();
+        this.loginPage.goTo();
+        if (!this.loginPage.getLoginComponent().loginBypass()) {
+            Assert.assertTrue(this.loginPage.isAt());
+            this.loginPage.getLoginComponent().completeForm();
+        }
 
         Assert.assertTrue(this.landingPage.isAt());
         this.landingPage.getLandingComponent().clickApplicationLocation();
@@ -35,6 +36,7 @@ public class ApplicationLocationTest extends SpringTestNGTest {
         this.applicationLocationPage.getApplicationLocationComponent().clickAllQuickFilters();
         this.applicationLocationPage.getApplicationLocationComponent().editApplicationUsage();
         this.applicationLocationPage.getApplicationLocationComponent().editApplicationUsage();
+        this.applicationLocationPage.getApplicationLocationComponent().downloadExcelDataApps();
 
         Assert.assertTrue(this.landingPage.isAt());
         this.landingPage.getLandingComponent().clickApplicationLocation();
@@ -44,6 +46,7 @@ public class ApplicationLocationTest extends SpringTestNGTest {
         this.applicationLocationPage.getApplicationLocationComponent().clickAllQuickFiltersDeployement();
         this.applicationLocationPage.getApplicationLocationComponent().editApplicationDeployment();
         this.applicationLocationPage.getApplicationLocationComponent().editApplicationDeployment();
+        this.applicationLocationPage.getApplicationLocationComponent().downloadExcelDataDeployment();
 
 
 

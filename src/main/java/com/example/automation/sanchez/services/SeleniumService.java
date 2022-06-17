@@ -130,7 +130,7 @@ public class SeleniumService {
         this.wait.until(ExpectedConditions.visibilityOfElementLocated(
                 By.xpath("//div[@aria-label='" + wb + "' and @role='combobox']"))).click();
         this.wait.until(ExpectedConditions.visibilityOfElementLocated(
-                By.xpath("//div[@aria-label='" + wb + " " + text + "']/div"))).click();
+                By.xpath("//span[@title= '"+text+"']/preceding-sibling::div/span"))).click();
         this.wait.until(ExpectedConditions.visibilityOfElementLocated(
                 By.xpath("//div[@aria-label='" + wb + "' and @role='combobox']"))).click();
         this.driver.switchTo().parentFrame();

@@ -21,20 +21,18 @@ public class WaitForService {
     @LazyAutowired
     private WebDriver driver;
 
-    
-
     public void waitForPulse(int step) throws InterruptedException {
         FluentWait<WebDriver> wait = new FluentWait<>(this.driver).withTimeout(Duration.ofSeconds(60))
-            .pollingEvery(Duration.ofMillis(250))
-            .ignoring(NoSuchElementException.class)
-            .ignoring(StaleElementReferenceException.class);
+                .pollingEvery(Duration.ofMillis(250))
+                .ignoring(NoSuchElementException.class)
+                .ignoring(StaleElementReferenceException.class);
         int count = 0;
         while (true) {
             boolean status = wait.until(
                     ExpectedConditions.attributeContains(By.xpath("/html/body/div[1]/div[3]"), "aria-hidden", "true"));
             count = count + 1;
             if (status && (count > step)) {
-                //System.out.println("JQuery loaded up!!!");
+                // System.out.println("JQuery loaded up!!!");
                 count = 0;
                 break;
             }
@@ -45,21 +43,22 @@ public class WaitForService {
 
     public void waitForElementPresent(String xpath) {
         FluentWait<WebDriver> wait2 = new FluentWait<>(this.driver).withTimeout(Duration.ofSeconds(10))
-            .pollingEvery(Duration.ofSeconds(1))
-            .ignoring(NoSuchElementException.class)
-            .ignoring(StaleElementReferenceException.class);
+                .pollingEvery(Duration.ofSeconds(1))
+                .ignoring(NoSuchElementException.class)
+                .ignoring(StaleElementReferenceException.class);
         wait2.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
     }
 
+    public boolean waitForWebElementPresent(WebElement element, String attribute, String textString) {
+        try {
+            FluentWait<WebDriver> wait3 = new FluentWait<>(this.driver).withTimeout(Duration.ofSeconds(10))
+                    .pollingEvery(Duration.ofSeconds(1))
+                    .ignoring(NoSuchElementException.class)
+                    .ignoring(StaleElementReferenceException.class);
+            return wait3.until(ExpectedConditions.attributeToBe(element, attribute, textString));
+        } catch (Exception e) {
+            return false;
+        }
 
-
-    public boolean waitForWebElementPresent(WebElement element, String textString) {
-        FluentWait<WebDriver> wait3 = new FluentWait<>(this.driver).withTimeout(Duration.ofSeconds(10))
-        .pollingEvery(Duration.ofSeconds(1))
-        .ignoring(NoSuchElementException.class)
-        .ignoring(StaleElementReferenceException.class);
-        System.out.println(element.getText());
-        return wait3.until(ExpectedConditions.attributeToBe(element, "text" ,textString));
-        
     }
 }

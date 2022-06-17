@@ -18,10 +18,12 @@ public class ApplicationDataService {
 
     private String applicationName;
 
-    
-
     public String getApplicationName() {
-        return this.applicationName;
+        
+
+        //return this.applicationName;
+
+        return  this.applicationName == null ? "What's Watt" : this.applicationName;
     }
 
   

@@ -23,18 +23,17 @@ public class CloudServicesTest extends SpringTestNGTest {
 
     @Test
     public void cloudServicesPage() throws IOException, InterruptedException {
-        // this.loginPage.goTo();
-    
-        // Assert.assertTrue(this.loginPage.isAt());
-        // this.loginPage.getLoginComponent().completeForm();
+        this.loginPage.goTo();
+        if (!this.loginPage.getLoginComponent().loginBypass()) {
+            Assert.assertTrue(this.loginPage.isAt());
+            this.loginPage.getLoginComponent().completeForm();
+        }
 
         Assert.assertTrue(this.landingPage.isAt());
         this.landingPage.getLandingComponent().clickCloudServices();
 
         Assert.assertTrue(this.cloudServicesPage.isAt());
         this.cloudServicesPage.getCloudServicesComponent().checkCloudServices();
-
-
 
     }
 }

@@ -236,23 +236,23 @@ public class EditComponent extends Base {
     @FindBy(id = "ApplicationsEditForm:bottomSaveButton")
     private WebElement SaveButton;
 
-    public void completeBusinessAttributesTab() throws IOException {
+    public void completeBusinessAttributesTab() throws IOException, InterruptedException {
         seleniumUtilities.click(businessAttributesTab);
-        seleniumUtilities.waitForPageLoad();
+        waitForService.waitForPulse(3);
         seleniumUtilities.selectDropdown(XPlatformIndicator, "On Platform");
-        seleniumUtilities.waitForPageLoad();
+        waitForService.waitForPulse(3);
         seleniumUtilities.selectDropdown(BusinessCategory, "Business Product");
-        seleniumUtilities.waitForPageLoad();
+        waitForService.waitForPulse(3);
         seleniumUtilities.selectDropdown(BusinessFunction, "Markets and Structuring");
-        seleniumUtilities.waitForPageLoad();
+        waitForService.waitForPulse(3);
         seleniumUtilities.populateText(BusinessCapability, "This a test ");
-        seleniumUtilities.waitForPageLoad();
+        waitForService.waitForPulse(3);
         seleniumUtilities.selectDropdown(applicationHealth_BFit, "Average");
-        seleniumUtilities.waitForPageLoad();
+        waitForService.waitForPulse(3);
         seleniumUtilities.selectDropdown(applicationHealth_TFit, "Average");
-        seleniumUtilities.waitForPageLoad();
+        waitForService.waitForPulse(3);
         seleniumUtilities.selectDropdown(applicationLifeCycle, "Mature");
-        seleniumUtilities.waitForPageLoad();
+        waitForService.waitForPulse(3);
         seleniumUtilities.click(businessAttributesCheckbox);
         screenshotService.takeScreenShot(this.getClass().getSimpleName(), Thread.currentThread().getStackTrace()[1].getMethodName());
         javaScriptServices.scrollUp();
@@ -260,70 +260,70 @@ public class EditComponent extends Base {
 
     }
 
-    public void completeApplicationIntegration() throws IOException {
+    public void completeApplicationIntegration() throws IOException, InterruptedException {
         seleniumUtilities.click(ApplicationIntegrationTab);
-        seleniumUtilities.waitForPageLoad();
+        waitForService.waitForPulse(3);
         seleniumUtilities.selectDropdown(sourceOrTarget1, "Incoming");
-        seleniumUtilities.waitForPageLoad();
+        waitForService.waitForPulse(3);
         seleniumUtilities.populateText(Target1_input, "WW");
-        seleniumUtilities.waitForPageLoad();
+        waitForService.waitForPulse(3);
         seleniumUtilities.click(option);
-        seleniumUtilities.waitForPageLoad();
+        waitForService.waitForPulse(3);
         seleniumUtilities.selectDropdown(IntegrationMechanism1, "REST");
-        seleniumUtilities.waitForPageLoad();
+        waitForService.waitForPulse(3);
         seleniumUtilities.selectDropdown(IntegrationType1, "Queue");
-        seleniumUtilities.waitForPageLoad();
+        waitForService.waitForPulse(3);
         seleniumUtilities.selectDropdown(criticalLink1, "BusinessCritical");
-        seleniumUtilities.waitForPageLoad();
+        waitForService.waitForPulse(3);
         seleniumUtilities.click(addIntergrationsPointsBtn);
-        seleniumUtilities.waitForPageLoad();
+        waitForService.waitForPulse(3);
         seleniumUtilities.click(conformationBtn);
-        seleniumUtilities.waitForPageLoad();
+        waitForService.waitForPulse(3);
         seleniumUtilities.click(IntegrationsCheckbox);
-        seleniumUtilities.waitForPageLoad();
+        waitForService.waitForPulse(3);
         screenshotService.takeScreenShot(this.getClass().getSimpleName(), Thread.currentThread().getStackTrace()[1].getMethodName());
         javaScriptServices.scrollUp();
         seleniumUtilities.click(ApplicationIntegrationTab);
 
     }
 
-    public void completeFinance() throws IOException {
+    public void completeFinance() throws IOException, InterruptedException {
         seleniumUtilities.click(CostsTab);
-        seleniumUtilities.waitForPageLoad();
+        waitForService.waitForPulse(3);
         seleniumUtilities.populateText(V_BDG_DirExtCost_2021_input, "250");
-        seleniumUtilities.waitForPageLoad();
+        waitForService.waitForPulse(3);
         seleniumUtilities.populateText(V_BDG_InDirExtCost_2021_input, "250");
-        seleniumUtilities.waitForPageLoad();
+        waitForService.waitForPulse(3);
         seleniumUtilities.populateText(V_BDG_Vat_2021_input, "250");
-        seleniumUtilities.waitForPageLoad();
+        waitForService.waitForPulse(3);
         seleniumUtilities.populateText(V_BDG_SLACost_2021_input, "250");
-        seleniumUtilities.waitForPageLoad();
+        waitForService.waitForPulse(3);
         seleniumUtilities.populateText(V_BDG_Staff_2021_input, "250");
-        seleniumUtilities.waitForPageLoad();
+        waitForService.waitForPulse(3);
         seleniumUtilities.populateText(V_BDG_OthIntCost_2021_input, "250");
-        seleniumUtilities.waitForPageLoad();
+        waitForService.waitForPulse(3);
         seleniumUtilities.populateText(V_ACT_DirExtCost_2020_input, "100");
-        seleniumUtilities.waitForPageLoad();
+        waitForService.waitForPulse(3);
         seleniumUtilities.populateText(V_ACT_InDirExtCost_2020_input, "100");
-        seleniumUtilities.waitForPageLoad();
+        waitForService.waitForPulse(3);
         seleniumUtilities.populateText(V_ACT_Vat_2020_input, "100");
-        seleniumUtilities.waitForPageLoad();
+        waitForService.waitForPulse(3);
         seleniumUtilities.populateText(V_ACT_SLACost_2020_input, "100");
-        seleniumUtilities.waitForPageLoad();
+        waitForService.waitForPulse(3);
         seleniumUtilities.populateText(V_ACT_Staff_2020_input, "100");
-        seleniumUtilities.waitForPageLoad();
+        waitForService.waitForPulse(3);
         seleniumUtilities.populateText(V_ACT_OthIntCost_2020_input, "100");
         
         javaScriptServices.scrollDown();
         seleniumUtilities.populateText(percentrun21_22_input, "25");
-        seleniumUtilities.waitForPageLoad();
+        waitForService.waitForPulse(3);
         seleniumUtilities.populateText(percentchange21_22_input, "25");
-        seleniumUtilities.waitForPageLoad();
+        waitForService.waitForPulse(3);
         seleniumUtilities.populateText(percentprotect21_22_input, "25");
-        seleniumUtilities.waitForPageLoad();
+        waitForService.waitForPulse(3);
         seleniumUtilities.populateText(percentxinit21_22_input, "25");
         seleniumUtilities.click(FinanceAttributesCheckbox);
-        seleniumUtilities.waitForPageLoad();
+        waitForService.waitForPulse(3);
         screenshotService.takeScreenShot(this.getClass().getSimpleName(), Thread.currentThread().getStackTrace()[1].getMethodName());
         javaScriptServices.scrollUp();
         javaScriptServices.scrollUp();
@@ -331,93 +331,93 @@ public class EditComponent extends Base {
 
     }
 
-    public void completeCriticality() throws IOException {
+    public void completeCriticality() throws IOException, InterruptedException {
         seleniumUtilities.click(CriticalityTab);
-        seleniumUtilities.waitForPageLoad();
+        waitForService.waitForPulse(3);
         seleniumUtilities.click(criticalApp);
-        seleniumUtilities.waitForPageLoad();
+        waitForService.waitForPulse(3);
         seleniumUtilities.selectDropdown(businessImpactOfA24hrApplicationDowntime, "Significant Impact");
-        seleniumUtilities.waitForPageLoad();
+        waitForService.waitForPulse(3);
         seleniumUtilities.populateText(rto_input, "420");
-        seleniumUtilities.waitForPageLoad();
+        waitForService.waitForPulse(3);
         seleniumUtilities.populateText(rpo_input, "196");
-        seleniumUtilities.waitForPageLoad();
+        waitForService.waitForPulse(3);
         seleniumUtilities.selectDropdown(applicationRequiresSupportFrom,
                 "Resources and skills required to maintain the application are usually available in the marketplace.");
         seleniumUtilities.click(criticalityCheckbox);
-        seleniumUtilities.waitForPageLoad();
+        waitForService.waitForPulse(3);
         screenshotService.takeScreenShot(this.getClass().getSimpleName(), Thread.currentThread().getStackTrace()[1].getMethodName());
         javaScriptServices.scrollUp();
         seleniumUtilities.click(CriticalityTab);
 
     }
 
-    public void completeInfrastructure() throws IOException {
+    public void completeInfrastructure() throws IOException, InterruptedException {
         seleniumUtilities.click(InfrastructureTab);
-        seleniumUtilities.waitForPageLoad();
+        waitForService.waitForPulse(3);
         seleniumUtilities.populateText(dateofLastDRTest, "03/31/2022");
-        seleniumUtilities.waitForPageLoad();
+        waitForService.waitForPulse(3);
         seleniumUtilities.selectDropdown(isParticipatingInDR, "Yes");
-        seleniumUtilities.waitForPageLoad();
+        waitForService.waitForPulse(3);
         seleniumUtilities.selectDropdown(drLocation2021, "Red3");
-        seleniumUtilities.waitForPageLoad();
+        waitForService.waitForPulse(3);
         seleniumUtilities.populateText(drComment, "This is a test");
-        seleniumUtilities.waitForPageLoad();
+        waitForService.waitForPulse(3);
         seleniumUtilities.selectDropdownSearch(drChampionID, "Andre Goliath (2865912)");
-        seleniumUtilities.waitForPageLoad();
+        waitForService.waitForPulse(3);
         javaScriptServices.scrollDown();
         seleniumUtilities.click(DRConfirmedCheckbox);
-        seleniumUtilities.waitForPageLoad();
+        waitForService.waitForPulse(3);
         screenshotService.takeScreenShot(this.getClass().getSimpleName(), Thread.currentThread().getStackTrace()[1].getMethodName());
         javaScriptServices.scrollUp();
         seleniumUtilities.click(InfrastructureTab);
 
     }
 
-    public void completeSecurity() throws IOException {
+    public void completeSecurity() throws IOException, InterruptedException {
         // Security Risk Attributes
         seleniumUtilities.click(SecurityTab);
         javaScriptServices.scrollDown();
-        seleniumUtilities.waitForPageLoad();
+        waitForService.waitForPulse(3);
         seleniumUtilities.selectDropdown(systemClassification, "Business Critical");
-        seleniumUtilities.waitForPageLoad();
+        waitForService.waitForPulse(3);
         seleniumUtilities.selectDropdown(functionalClassification, "Transact");
-        seleniumUtilities.waitForPageLoad();
+        waitForService.waitForPulse(3);
         seleniumUtilities.selectDropdown(dataClassification, "Public");
-        seleniumUtilities.waitForPageLoad();
+        waitForService.waitForPulse(3);
         seleniumUtilities.click(internetFacing);
-        seleniumUtilities.waitForPageLoad();
+        waitForService.waitForPulse(3);
         seleniumUtilities.click(POPIData);
-        seleniumUtilities.waitForPageLoad();
+        waitForService.waitForPulse(3);
         seleniumUtilities.click(thirdPartyIntegration);
-        seleniumUtilities.waitForPageLoad();
+        waitForService.waitForPulse(3);
         seleniumUtilities.click(PCIData);
         // Security Controls
-        seleniumUtilities.waitForPageLoad();
+        waitForService.waitForPulse(3);
         seleniumUtilities.selectDropdown(Sec_2FA_FEB, "Digitag");
-        seleniumUtilities.waitForPageLoad();
+        waitForService.waitForPulse(3);
         seleniumUtilities.selectDropdown(Sec_2FA_BEB, "Digitag");
-        seleniumUtilities.waitForPageLoad();
+        waitForService.waitForPulse(3);
         seleniumUtilities.selectDropdown(sec_PAM_Dep, "Full");
-        seleniumUtilities.waitForPageLoad();
+        waitForService.waitForPulse(3);
         seleniumUtilities.selectDropdown(sec_IAG_OAR, "Automated");
-        seleniumUtilities.waitForPageLoad();
+        waitForService.waitForPulse(3);
         seleniumUtilities.selectDropdown(sec_IAG_ORBP, "Automated");
-        seleniumUtilities.waitForPageLoad();
+        waitForService.waitForPulse(3);
         seleniumUtilities.selectDropdown(Sec_PRI_AM, "AD (Single Sign On)");
-        seleniumUtilities.waitForPageLoad();
+        waitForService.waitForPulse(3);
         seleniumUtilities.selectDropdown(sec_CCS, "Full");
-        seleniumUtilities.waitForPageLoad();
+        waitForService.waitForPulse(3);
         seleniumUtilities.click(SecurityCheckbox);
-        seleniumUtilities.waitForPageLoad();
+        waitForService.waitForPulse(3);
         screenshotService.takeScreenShot(this.getClass().getSimpleName(), Thread.currentThread().getStackTrace()[1].getMethodName());
         javaScriptServices.scrollUp();
         seleniumUtilities.click(SecurityTab);
 
     }
 
-    public void clickSaveBtn() throws IOException {
-        seleniumUtilities.waitForPageLoad();
+    public void clickSaveBtn() throws IOException, InterruptedException {
+        waitForService.waitForPulse(3);
         javaScriptServices.scrollDown();
         screenshotService.takeScreenShot(this.getClass().getSimpleName(), Thread.currentThread().getStackTrace()[1].getMethodName());
         seleniumUtilities.click(SaveButton);
